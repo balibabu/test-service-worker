@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let num = 0;
+const savedValues = localStorage.getItem('key');
+export default function App() {
+    const [values, setValues] = useState(savedValues ? savedValues.split(',') : []);
+
+    function addValue() {
+        setValues((prev) => {
+            const newValues = [...values, num++];
+            localStorage.setItem('key', newValues.toLocaleString());
+            return newValues
+        });
+    }
+    
+    return (
+        <div>
+            <button onClick={addValue}>Add Number</button>
+            {values.map((value) => <div key={value}>{value}</div>)}
+        </div>
+    )
 }
-
-export default App;
