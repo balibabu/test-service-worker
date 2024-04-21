@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/test-service-worker/static/js/main.f0dc143c.js",
+    "index.html": "/test-service-worker/index.html",
+    "main.f0dc143c.js.map": "/test-service-worker/static/js/main.f0dc143c.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f0dc143c.js"
+  ]
+}
